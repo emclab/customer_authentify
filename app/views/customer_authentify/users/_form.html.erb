@@ -1,0 +1,17 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name, :label => t('Name') %>
+  <%= f.input :login, :label => t('Login'), :hint => t('6 characters or more') if Authentify::AuthentifyUtility.find_config_const('login_name', 'authentify') == 'true'  %>
+  <%= f.input :email, :label => t('Email') %>
+  <%= f.input :cell, :label => t('Cell#'), :placeholder => '1234567890' %> 
+  <div id="user_password_checkbox">
+  <%= f.input :update_password_checkbox, :as => :boolean, :label => t('Update Password') %>
+  </div>
+  <%= f.input :status, :collection => return_user_status, :selected => @user.status, :label => t('User Status') %>
+  <div id='div_user_password'>
+  <%= f.input :password, :label => t('Password'), :hint => t('6 characters or more')  %>
+  <%= f.input :password_confirmation, :label => t('Password Confirmation') %>
+  </div>
+  
+  <p><%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  	 <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %></p>
+<% end %>

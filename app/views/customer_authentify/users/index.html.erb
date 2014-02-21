@@ -1,0 +1,43 @@
+<div id="main_body">
+	<h1><%=t('Users')%></h1>
+<div class="pagination"><%= will_paginate @users %></div>
+
+<table class="table table-striped">
+  <tr>
+  	<th>#</th>
+    <th><%=t('Name')%></th>
+    <th><%=t('Email') %></th>
+    <th><%=t('Login')%></th>
+    <th><%=t('Status')%></th>
+    <th><%=t('Customer')%></th>
+    <th><%=t('Cell#') %></th>
+    <th><%=t('Text Msg Alert') %></th>
+    <th><%=t('Email Alert') %></th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.id.to_s, SUBURI + "/view_handler?index=1&url=#{user_path(user)}" %></td>  	
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.login %></td>
+      <td><%= t(user.status) %></td>
+      <td><%= CustomerAuthentify.customer_class.find_by_id(user.customer_id).name %></td>
+      <td><%= user.cell %></td>
+      <td><%= user.allow_text_msg ? t('Yes') : t('No') %></td>
+      <td><%= user.allow_email ? t('Yes') : t('No') %></td>
+      <td><%= link_to t("Edit"), SUBURI + "/authentify/view_handler?index=1&url=#{edit_user_path(user)}", :class => BUTTONS_CLS['action'] %></td>
+    </tr>
+  <% end %>
+</table>
+<p>
+<table class="table table-striped">
+	  <tr>
+	    <th>
+         <%= link_to t("New User"), SUBURI + "/authentify/view_handler?index=1&url=#{new_user_path}", :class => BUTTONS_CLS['action'] %>
+        </th>
+	  </tr>
+	</table>
+</p>
+</div>
+
