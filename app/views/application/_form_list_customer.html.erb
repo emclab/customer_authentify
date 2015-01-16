@@ -1,6 +1,9 @@
-<div id="main_body">
-	<h1><%=t('Users')%></h1>
-<div class="pagination"><%= will_paginate @users %></div>
+<% if @view_in_config && @erb_code %>
+  <%= render inline: ERB.new(@erb_code).result(binding) %>
+  
+<% else %>
+  <h1><%=@title%></h1>
+<div class="pagination"><%= will_paginate models %></div>
 
 <table class="table table-striped">
   <tr>
@@ -15,9 +18,9 @@
     <th><%=t('Email Alert') %></th>
     <th></th>
   </tr>
-  <% @users.each do |user| %>
+  <% models.each do |user| %>
     <tr>
-      <td><%= link_to user.id.to_s, SUBURI + "/view_handler?index=1&url=#{user_path(user)}" %></td>  	
+      <td><%= user.id.to_s %></td>  	
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td><%= user.login %></td>
@@ -26,7 +29,7 @@
       <td><%= user.cell %></td>
       <td><%= user.allow_text_msg ? t('Yes') : t('No') %></td>
       <td><%= user.allow_email ? t('Yes') : t('No') %></td>
-      <td><%= link_to t("Edit"), SUBURI + "/authentify/view_handler?index=1&url=#{edit_user_path(user)}", :class => BUTTONS_CLS['action'] %></td>
+      <td><%= link_to t("Edit"), SUBURI + "/authentify/view_handler?index=1&url=#{edit_customer_login_users_path(id: user.id)}", :class => BUTTONS_CLS['action'] if has_action_right?('edit_customer_login', params[:controller]) %></td>
     </tr>
   <% end %>
 </table>
@@ -34,10 +37,9 @@
 <table class="table table-striped">
 	  <tr>
 	    <th>
-         <%= link_to t("New User"), SUBURI + "/authentify/view_handler?index=1&url=#{new_user_path}", :class => BUTTONS_CLS['action'] %>
+         <%= link_to t("New User"), SUBURI + "/authentify/view_handler?index=1&url=#{new_customer_login_users_path(customer_id: @customer.id)}", :class => BUTTONS_CLS['action'] if @customer && has_action_right?('new_customer_login', params[:controller]) %>
         </th>
 	  </tr>
 	</table>
 </p>
-</div>
-
+<% end %>

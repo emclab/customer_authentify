@@ -1,4 +1,5 @@
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, :url => update_customer_login_users_path, :method => :put do |f| %>
+  <%= f.input :id, :as => :hidden %>
   <%= f.input :name, :label => t('Name') %>
   <%= f.input :login, :label => t('Login'), :hint => t('6 characters or more') if Authentify::AuthentifyUtility.find_config_const('login_name', 'authentify') == 'true'  %>
   <%= f.input :email, :label => t('Email') %>
@@ -13,5 +14,6 @@
   </div>
   
   <p><%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  	&nbsp;&nbsp;&nbsp;&nbsp;
   	 <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %></p>
 <% end %>

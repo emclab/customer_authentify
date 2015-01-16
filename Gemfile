@@ -14,5 +14,6 @@ gem "jquery-rails", "~> 2.3.0"
 gem "will_paginate"
 
 gem 'authentify', :path => '../authentify'  #for rspec test
+gem 'info_service_projectx', :path => '../info_service_projectx'
 # To use debugger
 # gem 'debugger'
