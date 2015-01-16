@@ -18,6 +18,7 @@ module CustomerAuthentify
       @user = Authentify::User.new
       @user.user_levels.build
       @user.user_roles.build
+      @erb_code = find_config_const('user_new_customer_login_view', 'customer_authentify')
     end
   
     def create_customer_login
@@ -29,6 +30,7 @@ module CustomerAuthentify
       if @user.save
         redirect_to URI.escape(SUBURI + "/view_handler?index=0&msg=Successfully Saved!")
       else
+        @erb_code = find_config_const('user_new_customer_login_view', 'customer_authentify')
         flash.now[:error] = t('Data Error. Not Saved!')
         render 'new_customer_login'
       end
@@ -37,6 +39,7 @@ module CustomerAuthentify
     def edit_customer_login
       @title = t("Update User")
       @user = Authentify::User.find_by_id(params[:id])
+      @erb_code = find_config_const('user_edit_customer_login_view', 'customer_authentify')
     end
   
     def update_customer_login
@@ -45,6 +48,7 @@ module CustomerAuthentify
       if @user.update_attributes(params[:user], :as => :sales_update)
         redirect_to URI.escape(SUBURI + "/view_handler?index=0&msg=Successfully Updated!")
       else
+        @erb_code = find_config_const('user_edit_customer_login_view', 'customer_authentify')
         flash.now[:error] = t('Data Error. Not Updated!')
         render 'edit_customer_login'
       end     

@@ -37,7 +37,9 @@
 <table class="table table-striped">
 	  <tr>
 	    <th>
-         <%= link_to t("New User"), SUBURI + "/authentify/view_handler?index=1&url=#{new_customer_login_users_path(customer_id: @customer.id)}", :class => BUTTONS_CLS['action'] if @customer && has_action_right?('new_customer_login', params[:controller]) %>
+	     <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <%= link_to t("New User"), SUBURI + "/authentify/view_handler?index=1&url=#{new_customer_login_users_path(customer_id: @customer.id)}", :class => BUTTONS_CLS['action'] if @customer && has_action_right?('new_customer_login', params[:controller]) %>        
         </th>
 	  </tr>
 	</table>

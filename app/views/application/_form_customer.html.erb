@@ -1,3 +1,7 @@
+<% if @view_in_config && @erb_code %>
+  <%= render inline: @erb_code %>
+  
+  <% else %>
 <%= simple_form_for @user, :url => update_customer_login_users_path, :method => :put do |f| %>
   <%= f.input :id, :as => :hidden %>
   <%= f.input :name, :label => t('Name') %>
@@ -13,7 +17,9 @@
   <%= f.input :password_confirmation, :label => t('Password Confirmation') %>
   </div>
   
-  <p><%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
-  	&nbsp;&nbsp;&nbsp;&nbsp;
-  	 <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %></p>
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>
+<% end %>
+
 <% end %>
