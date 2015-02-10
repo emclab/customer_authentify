@@ -1,8 +1,8 @@
 module CustomerAuthentify
   module UsersHelper
-    #before_filter load @customer
+    #before_action load @customer
     def self.included(base)
-      base.before_filter :load_record
+      base.before_action :load_record
     end
     
     def index_customer_login

@@ -10,10 +10,10 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 # jquery-rails is used by the dummy application
-gem "jquery-rails", "~> 2.3.0"
+gem "jquery-rails" #, "~> 2.3.0"
 gem "will_paginate"
 
-gem 'authentify', :path => '../authentify'  #for rspec test
-gem 'info_service_projectx', :path => '../info_service_projectx'
+gem 'authentify', :path => '../authentify', branch: '4.2.0'  #for rspec test
+gem 'info_service_projectx', :path => '../info_service_projectx', branch: '4.2.0'
 # To use debugger
 # gem 'debugger'
