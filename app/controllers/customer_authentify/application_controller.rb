@@ -1,5 +1,5 @@
 module CustomerAuthentify
-  class ApplicationController < ApplicationController
+  class ApplicationController < ::ApplicationController
     include Authentify::SessionsHelper
     include Authentify::AuthentifyUtility
     include Authentify::UsersHelper

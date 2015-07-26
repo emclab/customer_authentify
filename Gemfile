@@ -12,6 +12,10 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails" #, "~> 2.3.0"
 gem "will_paginate"
+gem 'tzinfo-data', platforms: [:mingw_20, :mingw, :mswin]
+gem 'protected_attributes'
+gem 'factory_girl_rails' #rails 4.2
+
 
 gem 'authentify', :path => '../authentify', branch: '4.2.0'  #for rspec test
 gem 'info_service_projectx', :path => '../info_service_projectx', branch: '4.2.0'
