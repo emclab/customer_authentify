@@ -2,6 +2,7 @@
   <%= render inline: @erb_code %>
   
   <% else %>
+  <h1><%=@title%></h1>
 <%= simple_form_for @user, :url => update_customer_login_users_path, :method => :put do |f| %>
   <%= f.input :id, :as => :hidden %>
   <%= f.input :name, :label => t('Name') %>
@@ -17,7 +18,7 @@
   <%= f.input :password_confirmation, :label => t('Password Confirmation') %>
   </div>
   
-  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
+  <%= link_to t('Back'), SUBURI + "/view_handler?index=0", :class => BUTTONS_CLS['action'] %>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>
 <% end %>
