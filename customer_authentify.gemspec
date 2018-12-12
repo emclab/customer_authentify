@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = CustomerAuthentify::VERSION
   s.authors     = ["Your name"]
   s.email       = ["acgtek@yahoo.com"]
-  s.homepage    = "a@home.com"
+  s.homepage    = "http://home.com"
   s.summary     = "Summary of CustomerAuthentify."
   s.description = "Description of CustomerAuthentify."
   s.license     = "MIT"
