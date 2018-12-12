@@ -7,11 +7,11 @@ require "customer_authentify/version"
 Gem::Specification.new do |s|
   s.name        = "customer_authentify"
   s.version     = CustomerAuthentify::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of CustomerAuthentify."
-  s.description = "TODO: Description of CustomerAuthentify."
+  s.authors     = ["Your name"]
+  s.email       = ["acgtek@yahoo.com"]
+  s.homepage    = "a@home.com"
+  s.summary     = "Summary of CustomerAuthentify."
+  s.description = "Description of CustomerAuthentify."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
